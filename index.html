@@ -1,0 +1,51 @@
+<head>   
+    <title>Bad Haiku</title>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+  <body onload="loadHaiku()">
+    <h2>Bad Haiku</h2>
+    <p>Like, really bad.  20 seconds to come up with them bad.</p>
+    <button class="b4-button-default" onclick="loadHaiku()">Randomiser</button>
+    <h4 id="title"></h4>
+    <p id="poem"></p>
+</body>
+<footer style="text-align: center;">
+    <h6>Created by Garry Turner, driven crazy by lockdown 2.0, December 2020</h6>
+</footer>
+
+<script>
+    var index = 1;
+    var haiku = [
+        {
+            "title":"It's (not) a jungle out there",
+            "poem": "The TV is on,<br /> I'm A Celeb is playing<br /> I'm addicted, shit."
+        },
+        {
+            "title":"View from the window",
+            "poem": "I'm looking outside,<br />A leaf falling from the sky<br />It landed.  It's dead."
+        },
+        {
+            "title":"Put the kettle on",
+            "poem": "I need a hot drink,<br />I only drink Yorkshire Gold<br />I am a tea snob."
+        }
+    ]
+
+    function populateHaiku(index) {
+        var title = haiku[index].title;
+        var poem = haiku[index].poem;
+
+        document.getElementById("title").innerHTML = title;
+        document.getElementById("poem").innerHTML = poem;
+    }
+
+    function loadHaiku() {
+        index = Math.floor(Math.random() * haiku.length); 
+        populateHaiku(index);
+    }
+</script>
